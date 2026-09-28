@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>local.clear-screentime-store</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/sh</string>
+		<string>-c</string>
+		<string>d=&quot;$(getconf DARWIN_USER_DIR)com.apple.ScreenTimeAgent/Store&quot;; while true; do find &quot;$d&quot; -type f -exec sh -c &apos;: &gt; &quot;$1&quot;&apos; _ {} \; ; killall ScreenTimeAgent; sleep 1; done 2&gt;/dev/null; touch ~/flags/.stkill.flag</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StandardErrorPath</key>
+	<string>/tmp/clear-screentime-store.log</string>
+</dict>
+</plist>
